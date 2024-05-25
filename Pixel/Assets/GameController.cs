@@ -29,6 +29,6 @@ public class GameController : MonoBehaviour
 
     private void Summ()
     {
-        _summ.text = $"Points: {_points}";
+        _summ.text = $"{_points}";
     }
 }
