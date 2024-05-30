@@ -5,17 +5,20 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Button = UnityEngine.UIElements.Button;
 
-public class PauseMenu : MonoBehaviour
+public class Menu : MonoBehaviour
 { 
-    [SerializeField] private bool _pauseGame;
+    public static Menu Z;
   [SerializeField]  private GameObject _pauseGameMenu;
+  [SerializeField] private GameObject _gameOverMenu;
+
+  private void Awake() => Z = this;
     void Update()
-    
+
     {
-        
+     
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (_pauseGame)
+            if (_pauseGameMenu.activeSelf)
             {
                 Resume();
             }
@@ -30,23 +33,28 @@ public class PauseMenu : MonoBehaviour
     {
         _pauseGameMenu.SetActive(false);
         Time.timeScale = 1f;
-        _pauseGame = false;
     }
 
     public void Pause()
     {
         _pauseGameMenu.SetActive(true);
         Time.timeScale = 0f;
-        _pauseGame = true;
     }
     public void Retry ()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
     }
 
     public void ToMenu()
     {
      Time.timeScale = 1f;
      SceneManager.LoadScene(0);
-    } 
+    }
+
+    internal void GameOver()
+    {
+        _gameOverMenu.SetActive(true);
+        Time.timeScale = 0f;
+    }
 } 

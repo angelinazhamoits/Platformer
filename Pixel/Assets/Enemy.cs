@@ -1,23 +1,21 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using PlayerSpace;
-using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using Random = UnityEngine.Random;
+
 
 public class MovingEnemy : MonoBehaviour
 {
+    
     [SerializeField] private Vector2 _groundCheckSize;
     [SerializeField] private Checker _checker;
     public float _speed = 2f;
     public Transform _groundCheck;
     public Rigidbody2D _rb;
     public LayerMask _groundLayers;
-    private bool isFacingLeft;
+    private bool _isFacingLeft;
     private bool _groundChecker;
+    private GameController _gameController;
 
     private void Start()
     {
@@ -30,7 +28,6 @@ public class MovingEnemy : MonoBehaviour
 
         if (!_groundChecker)
         {
-            isFacingLeft = !isFacingLeft;
             Flip();
         }
         MovementChecker();
@@ -44,19 +41,16 @@ public class MovingEnemy : MonoBehaviour
 
     private void Flip()
     {
-        if (isFacingLeft)
+        if (_isFacingLeft || !_isFacingLeft)
         {
-            transform.rotation = new Quaternion(0, 180, 0,0);
-        }
-        else
-        {
-            transform.rotation = new Quaternion(0, 0, 0,0);
+            _isFacingLeft = !_isFacingLeft;
+            transform.Rotate(0, 180, 0);
         }
     }
 
     private void MovementChecker()
     {
-        if (isFacingLeft)
+        if (_isFacingLeft)
         {
             _rb.velocity = new Vector2(-_speed, _rb.velocity.y);
         }
@@ -65,5 +59,7 @@ public class MovingEnemy : MonoBehaviour
             _rb.velocity = new Vector2(_speed, _rb.velocity.y);
         }
     }
+ 
+    
 }
 

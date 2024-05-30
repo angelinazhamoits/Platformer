@@ -7,20 +7,20 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private Transform _player;
-    private Vector3 _position;
+    private float _speed = 3f;
+    private float _offset = 1f;
 
-    private void Awake()
+    private void Start()
     {
-        if (!_player)
-        {
-            _player = FindObjectOfType<Player>().transform;
-        }
+        transform.position = new Vector3(_player.transform.position.x, _player.transform.position.y + _offset,
+            transform.position.z);
     }
     
     void Update()
     {
-        _position = _player.position;
-        _position.z = -10f;
-        transform.position = Vector3.Lerp(transform.position, _position, Time.deltaTime);
+        Vector3 position = _player.position;
+        position.z = transform.position.z;
+        position.y += _offset;
+        transform.position = Vector3.Lerp(transform.position, position, _speed * Time.deltaTime);
     }
 }

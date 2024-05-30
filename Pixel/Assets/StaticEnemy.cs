@@ -12,7 +12,7 @@ public class StaticEnemy : MonoBehaviour
     {
         if (collision.GetComponent <Player> ()!= null)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Menu.Z.GameOver();
         }
     }
 }

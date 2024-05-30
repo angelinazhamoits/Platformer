@@ -4,15 +4,13 @@ using UnityEngine;
 
 namespace PlayerSpace
 {
-
     public class MovementController : MonoBehaviour
     {
         internal float _moveInput;
-        private Player _player;
 
         private void Start()
         {
-            _player = GetComponent<Player>();
+            Player.I = GetComponent<Player>();
         }
         void Update()
         {
@@ -20,7 +18,7 @@ namespace PlayerSpace
             
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                _player.Jump();
+                Player.I.Jump();
             }
         }
     }

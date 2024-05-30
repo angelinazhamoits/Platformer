@@ -71,6 +71,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
+     <Compile Include="Assets\ObjectPoolUser.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
@@ -90,6 +91,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
      <Compile Include="Assets\Checker.cs" />
      <Compile Include="Assets\MainMenu.cs" />
+     <Compile Include="Assets\Bullet.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
      <Compile Include="Assets\GameController.cs" />
      <Folder Include="Assets" />
@@ -164,7 +166,7 @@
      <Folder Include="Assets\Pixel Adventure 1\Assets\Items\Boxes\Box1" />
      <Folder Include="Assets\Player\Scripts" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-     <Folder Include="Assets\Pixel Adventure 1\Assets\Items\Boxes\Box2" />
+     <Folder Include="Assets\Pixel Adventure 1\Assets\Background\Box2" />
      <Folder Include="Assets\Game GUI Vol1\PurpleRock\PNG" />
      <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Prefabs" />
      <Folder Include="Assets\Pixel Adventure 1\Assets\Other" />
