@@ -79,17 +79,11 @@ namespace PlayerSpace
 
         private Bullet CreateBullet()
         {
-            GameObject obj = Instantiate(_objectToPool, transform);
+            GameObject obj = Instantiate(_objectToPool);
             Bullet bullet = obj.GetComponent<Bullet>();
             bullet.Config();
             return bullet;
         }
-
-        public void ReturnObjectToPool(GameObject obj)
-        {
-            obj.SetActive(false);
-        }
-        
         
         void Update()
         {

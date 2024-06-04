@@ -15,7 +15,6 @@ public class MovingEnemy : MonoBehaviour
     public LayerMask _groundLayers;
     private bool _isFacingLeft;
     private bool _groundChecker;
-    private GameController _gameController;
 
     private void Start()
     {
@@ -37,6 +36,7 @@ public class MovingEnemy : MonoBehaviour
     {
         _checker.OnCheck -= IsDead;
         Destroy(gameObject);
+        GameController.Y.Kill();
     }
 
     private void Flip()
@@ -59,7 +59,5 @@ public class MovingEnemy : MonoBehaviour
             _rb.velocity = new Vector2(_speed, _rb.velocity.y);
         }
     }
- 
-    
 }
 

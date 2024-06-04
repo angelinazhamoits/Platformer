@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using PlayerSpace;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -8,15 +9,16 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float _speed;
     private bool _isRight;
     public bool isMove;
+    private GameController _gameController;
 
     public void Config()
     {
         gameObject.SetActive(false);
     }
 
-    public void Shot(bool isLeft, Transform trans)
+    public void Shot(bool isRight, Transform trans)
     {
-        _isRight = isLeft;
+        _isRight = isRight;
         isMove = true;
         transform.position = trans.position;
         gameObject.SetActive(true);
@@ -35,14 +37,15 @@ public class Bullet : MonoBehaviour
         {
             return;
         }
-
-        if (_isRight)
+        if (!_isRight)
         {
-            transform.Translate(Vector2.right *_speed*Time.deltaTime);
+            Debug.Log($"isRight");
+            transform.Translate(Vector2.left *_speed*Time.deltaTime);
         }
         else
         {
-            transform.Translate(Vector2.left *_speed*Time.deltaTime);
+            Debug.Log($"isLeft");
+            transform.Translate(Vector2.right *_speed*Time.deltaTime);
         }
     }
 
@@ -53,6 +56,7 @@ public class Bullet : MonoBehaviour
         {
             Destroy(other.gameObject);
             Reset();
+            GameController.Y.Kill();
         }
         
         if (other.gameObject.tag == "Level")

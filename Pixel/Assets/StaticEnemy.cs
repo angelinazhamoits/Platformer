@@ -12,7 +12,7 @@ public class StaticEnemy : MonoBehaviour
     {
         if (collision.GetComponent <Player> ()!= null)
         {
-            Menu.Z.GameOver();
+            Menu.Z.GameOver(GameController.Y.Score,GameController.Y.Points);
         }
     }
 }
